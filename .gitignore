@@ -25,6 +25,9 @@ tests/__pycache___
 pyann/__pycache___
 
 
+## docs
+site/
+
 
 ## virtual libraries
 venv/
