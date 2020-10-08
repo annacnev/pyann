@@ -22,7 +22,7 @@ install:
   - pip install coveralls
 # # command to run tests, e.g. python setup.py test
 script:
-  - python setup.py nosetests --with-coverage --cover-package pypiview
+  - python setup.py nosetests --with-coverage --cover-package pyann
 
 after_sucess:
   coveralls
