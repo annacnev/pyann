@@ -17,17 +17,16 @@ from datetime import date
 file_loc = os.path.split(__file__)[0]
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(file_loc), '.')))
 
-import pyann
 
 
 # -- Project information -----------------------------------------------------
 
-project = pyann.__about__.__project__
-author = pyann.__about__.__author__
+project = 'pyann'
+author = 'Anna-Christina Nevison'
 copyright = u'Copyright 2020 - {0} {1}'.format(date.today().year, author)
 
 # The short X.Y version
-version = pyann.__about__.__version__
+version = '0.0.1'
 # The full version, including alpha/beta/rc tags
 release = version
 
