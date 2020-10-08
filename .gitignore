@@ -22,6 +22,7 @@ pip-wheel-metadata
 __pycache__
 annlib/__pycache__
 tests/__pycache___
+pyann/__pycache___
 
 
 
