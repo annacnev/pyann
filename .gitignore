@@ -48,3 +48,7 @@ Icon?
 ehthumbs.db
 Thumbs.db
 .directory
+
+
+# tests
+.coverage
