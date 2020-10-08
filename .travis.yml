@@ -5,13 +5,16 @@ python:
 services:
   - xvfb
 # command to install dependencies, e.g. pip install -r requirements.txt --use-mirrors
+
+compiler: clang
+
 before_install:
   - python --version
   - pip install -U pip
   - pip install -U pytest
   - pip install codecov
   - pip install cython
-  - pip install setuptools
+  - pip install setuptools==50.3.0
 
 install:
   - pip install .
