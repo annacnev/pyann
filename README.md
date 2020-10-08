@@ -1,6 +1,8 @@
 # PyANN
 
 [![Release Version](https://img.shields.io/github/release/annacnev/pyann.svg)](https://github.com/annacnev/pyann/releases/latest)
+[![PyPI version](https://badge.fury.io/py/pyann.svg)](https://badge.fury.io/py/pyann)
+[![Build Status](https://travis-ci.org/annacnev/pyann.svg?branch=master)](https://travis-ci.org/annacnev/pyann)
 [![Documentation Status](https://readthedocs.org/projects/pyann/badge/?version=latest)](https://pyann.readthedocs.io/en/latest/?badge=latest)
 
 Finds the k nearest neighbours for every point in a given dataset
@@ -28,7 +30,7 @@ PyANN requires Python>=3.6 due to the use of type annotations in the source code
 
 ### PyPI
 
-The recommendation is to install the latest released version from [PyPI](https://pypi.org) by doing:
+The recommendation is to install the latest released version from [PyPI](https://pypi.org/project/pyann/0.0.1/) by doing:
 
 ```
 pip install pyann
