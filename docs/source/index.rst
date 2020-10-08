@@ -11,13 +11,10 @@ Release v\ |version|
 .. toctree::
    :maxdepth: 2
 
-   <name-of-package>
+   pyann
 
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+pyann nn2
+===================
+.. automodule:: pyann.nn2
+   :members:
