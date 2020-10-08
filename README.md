@@ -44,8 +44,11 @@ To install PyANN from source you need [Cython](https://pypi.org/project/Cython/)
 pip install cython
 ```
 
-In the PyANN directory (same one where you found this file after cloning the git repo), execute:
-
+In the PyANN directory (same one where you found this file after cloning the git repo), first execute:
+```
+make
+```
+Then:
 ```
 python setup.py install
 ```
