@@ -1,5 +1,5 @@
 site_name: PyANN
 nav:
     - Home: docs/index.md
-    - Documentation: docs/documentation.md
+    - Documentation: docs/docs.md
 theme: readthedocs
