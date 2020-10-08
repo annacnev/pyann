@@ -1,0 +1,149 @@
+environment:
+
+  matrix:
+    - PYTHON: "C:/Python36"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python36-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python37"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python37-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python38"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python38-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python36"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python36-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python37"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python37-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python38"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python38-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 0
+
+    - PYTHON: "C:/Python36"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python36-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python37"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python37-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python38"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python38-x64"
+      ENABLE_CONTRIB: 0
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python36"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python36-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python37"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python37-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python38"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+    - PYTHON: "C:/Python38-x64"
+      ENABLE_CONTRIB: 1
+      ENABLE_HEADLESS: 1
+
+matrix:
+    fast_finish: true
+
+before_build:
+- cmd: |
+    "%PYTHON%/python.exe" -m pip install --upgrade pip
+    "%PYTHON%/python.exe" -m pip install --upgrade setuptools
+    "%PYTHON%/python.exe" -m pip install --upgrade codecov
+    "%PYTHON%/python.exe" -m pip install --upgrade cython
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+    refreshenv
+    choco install make
+    make
+
+- sh: |
+    python --version
+    pip install -U pip
+    pip install codecov
+    pip install cython
+    pip install setuptools==50.3.0
+    make
+
+
+build_script:
+- cmd: |
+    set "CI_BUILD=1" && "%PYTHON%/python.exe" -m pip wheel --wheel-dir=%cd%\dist . --verbose
+    "%PYTHON%/python.exe" -m pip install --upgrade nose
+    "%PYTHON%/python.exe" -m pip install --upgrade coverage
+    "%PYTHON%/python.exe" -m pip install --upgrade coveralls
+
+- sh: |
+    - pip install .
+    - pip install nose coverage
+    - pip install coveralls
+
+before_test:
+- ps: |
+    cd ${Env:APPVEYOR_BUILD_FOLDER}\tests
+    $env:PYTHONWARNINGS = "ignore:::pip._internal.cli.base_command"
+    &"${Env:PYTHON}/python.exe" -m pip install --user --no-warn-script-location (ls "../dist/opencv_*.whl")
+    if ($LastExitCode -ne 0) {throw $LastExitCode}
+
+test_script:
+- cmd: |
+    cd %APPVEYOR_BUILD_FOLDER%
+    "%PYTHON%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
+
+- sh: |
+    cd %APPVEYOR_BUILD_FOLDER%
+    python setup.py nosetests --with-coverage --cover-package pyann
