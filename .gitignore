@@ -46,4 +46,4 @@ Thumbs.db
 .directory
 
 ## sphinx
-docs/build
+docs/buildsite/

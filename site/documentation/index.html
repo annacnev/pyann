@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Documentation - PyANN</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Documentation";
+    var mkdocs_page_input_path = "documentation.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> PyANN</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Documentation</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pyannnn2">pyann.nn2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#overview">Overview</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#nearest-neighbour-search">Nearest Neighbour Search</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#search-types">Search types</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#return">Return</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#example">Example</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">PyANN</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Documentation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><span style = "font-weight:700;font-size:25px;color:#cc397b">pyann.nn2</span><em><span style="font-size:16px">(data, query=None, k=None, treetype='kd', searchtype='standard', radius=0.0, eps=0.0)</span></em></p>
+<h1 id="_1"></h1>
+<h2 id="pyannnn2">pyann.nn2</h2>
+<h3 id="overview">Overview</h3>
+<h4 id="nearest-neighbour-search">Nearest Neighbour Search</h4>
+<p>Uses a kd-tree to find the p number of near neighbours for each point in an input/output dataset. The advantage of the kd-tree is that it runs in O(M log M) time.</p>
+<p>The Pyann package utilizes the Approximate Near Neighbor (ANN) C++ library, which can give the exact near neighbours or approximate near neighbours to within a specified error bound.  </p>
+<p>For more information on the ANN library please visit http://www.cs.umd.edu/~mount/ANN/.</p>
+<h4 id="search-types">Search types</h4>
+<ul>
+<li><code>priority</code>: visits cells in increasing order of distance from the query point, and hence, should converge more rapidly on the true nearest neighbour, but <code>standard</code> is usually faster for exact searches.</li>
+<li><code>radius</code>: only searches for neighbours within a specified radius of the point. If there are no neighbours then <code>nn_idx</code> will contain 0 and <code>nn_dists</code> will contain 1.340781e+154 for that point.</li>
+</ul>
+<h3 id="parameters">Parameters</h3>
+<ul>
+<li>
+<p><strong>data</strong>: <em>array_like</em></p>
+<ul>
+<li>M-D <code>np.matrix</code>, where each of the M rows is a point</li>
+<li>M-D <code>np.ndarray</code>, where <code>D == 1</code> or <code>None</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>query</strong>:  <em>array_like</em>, <em>optional</em></p>
+<p>points that will be queried against data.</p>
+<ul>
+<li>N-D <code>np.matrix</code></li>
+<li>N-D <code>np.array</code>, where <code>D == 1</code> or <code>None</code></li>
+</ul>
+<p><code>query.shape[1]</code> must <code>== data.shape[1]</code>. if <code>None</code> (default), <code>query == data</code></p>
+</li>
+<li>
+<p><strong>k</strong>:  <em>float</em>, <em>int</em>, <em>optional</em></p>
+<p>The maximum number of nearest neighbours to compute. if <code>None</code> (default), k is set to <code>data.shape[0]</code> or 10, whichever smaller.</p>
+</li>
+<li>
+<p><strong>treetype</strong>: <em>str</em>, <em>optional</em></p>
+<p>Options:</p>
+<ul>
+<li><code>'kd'</code>: standard kd tree</li>
+<li><code>'bd'</code>: bd (box-decomposition, AMNSW98) tree which may perform better for larger point sets</li>
+</ul>
+<p>default is <code>'kd'</code></p>
+</li>
+<li>
+<p><strong>searchtype</strong>: <em>str</em>, <em>optional</em></p>
+<p>Options:</p>
+<ul>
+<li><code>'standard'</code></li>
+<li><code>'priority'</code></li>
+<li><code>'radius'</code></li>
+</ul>
+<p>See above for more detail. default is <code>'standard'</code>.</p>
+</li>
+<li>
+<p><strong>radius</strong>: <em>float</em>, <em>int</em>, <em>optional</em></p>
+<p>Radius of search for <code>searchtype='radius'</code>. default is <code>0.0</code>.</p>
+</li>
+<li>
+<p><strong>eps</strong>: <em>float</em>, <em>int</em>, <em>optional</em></p>
+<p>error bound. default of <code>0.0</code> implies exact nearest neighbour search.</p>
+</li>
+</ul>
+<h3 id="return">Return</h3>
+<ul>
+<li>
+<p><strong>NN2Results</strong></p>
+<p>Object of class <code>NN2Results</code> with two attributes: <code>nn_idx</code> and <code>nn_dists</code>.</p>
+<ul>
+<li><code>nn_idx</code>: A N-k integer <code>np.matrix</code> returning the near neighbour indices.</li>
+<li><code>nn_dists</code>: A N-k <code>np.matrix</code> returning the near neighbour Euclidean distances.</li>
+</ul>
+</li>
+</ul>
+<h3 id="example">Example</h3>
+<pre><code>&gt; results = pyann.nn2(np.matrix([[1, 0],
+                                [2, 0]]),
+
+                      np.matrix([[1.01, 0],
+                                 [3,    0],
+                                 [4.0, 0]]),
+                      k=1)
+&gt; results.nn_idx
+
+matrix([[1],
+        [2],
+        [2]])
+
+&gt; results.nn_dists
+
+matrix([[0.01],
+        [1.  ],
+        [2.  ]])
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
