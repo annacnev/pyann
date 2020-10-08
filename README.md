@@ -11,7 +11,8 @@ and bd as well as kd trees.
 This package implements nearest neighbors for the Euclidean (L2) metric.
 
 For further details on the underlying ANN library, see http://www.cs.umd.edu/~mount/ANN.
-For further details on the R implementation, see https://github.com/jefferislab/RANN.
+
+For further details on the R implementation, see [RANN](https://github.com/jefferislab/RANN).
 
 ## Installation
 ### Released versions
@@ -29,4 +30,4 @@ Please feel free to:
 * e-mail the maintainer: <annanev@umich.edu>
 
 ## Copyright and License
-see [COPYRIGHT](COPYRIGHT) and [LICENSE](LICENSE) files for copyright and license information.
+see [COPYRIGHT](https://github.com/annacnev/pyann/blob/master/COPYRIGHT) and [LICENSE](LICENSE) files for copyright and license information.

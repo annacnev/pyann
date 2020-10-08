@@ -1,7 +1,8 @@
-This Python package is copyright Anna Nevison 2020-,
-with the exception of files from v 1.1.3 of the ANN library, consisting of all
-files in lib/ except for NN.cc, and files from v 2.6.1 of the RANN package,
-consisting of file NN.cc found in lib/, which are copyright as described below.
+This Python package is copyright Anna-Christina Nevison 2020,
+with the exception of files from v 1.1.3 of the ANN library, consisting
+of all files in lib/ except for NN.cc, and files from v 2.6.1 of the RANN
+package, consisting of file NN.cc found in lib/, which are copyright as
+described below.
 
 --
 ANN: Approximate Nearest Neighbors

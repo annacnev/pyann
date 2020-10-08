@@ -19,7 +19,7 @@ annlib_extension = Extension(
 
 setup(
     name="pyann",
-    version = '0.0.02',
+    version = '0.0.03',
     description="Python wrapper for Arya and Mount's ANN library (v1.1.3)",
     long_description = long_description,
     long_description_content_type='text/markdown',
@@ -36,7 +36,6 @@ setup(
     ],
     packages = find_packages(),
     license='MIT',
-    #packages= ['pyann'],
     url='http://github.com/annacnev/pyann',
     ext_modules=cythonize([annlib_extension]),
     python_requires='>=3.6',

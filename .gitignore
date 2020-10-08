@@ -19,6 +19,10 @@ doc/cdoc/build
 MANIFEST
 .cache
 pip-wheel-metadata
+__pycache__
+annlib/__pycache__
+tests/__pycache___
+
 
 
 ## virtual libraries
@@ -40,3 +44,5 @@ ehthumbs.db
 Thumbs.db
 .directory
 
+## sphinx
+docs/build
