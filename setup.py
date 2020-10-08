@@ -19,7 +19,7 @@ annlib_extension = Extension(
 
 setup(
     name="pyann",
-    version = '0.0.03',
+    version = '0.0.1',
     description="Python wrapper for Arya and Mount's ANN library (v1.1.3)",
     long_description = long_description,
     long_description_content_type='text/markdown',
