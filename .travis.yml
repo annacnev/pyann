@@ -11,10 +11,10 @@ compiler: clang
 before_install:
   - python --version
   - pip install -U pip
-  - pip install -U pytest
   - pip install codecov
   - pip install cython
   - pip install setuptools==50.3.0
+  - "make"
 
 install:
   - pip install .
