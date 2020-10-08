@@ -1,3 +1,4 @@
+```
 This Python package is copyright Anna-Christina Nevison 2020,
 with the exception of files from v 1.1.3 of the ANN library, consisting
 of all files in lib/ except for NN.cc, and files from v 2.6.1 of the RANN
@@ -111,3 +112,4 @@ Hong University of Science and Technology
 Clearwater Bay, HONG KONG
 arya@cs.ust.hk
 http://www.cs.ust.hk/faculty/arya/
+```

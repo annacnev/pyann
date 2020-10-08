@@ -27,6 +27,7 @@ pyann/__pycache___
 
 ## docs
 site/
+docs/buildsite/
 
 
 ## virtual libraries
@@ -47,6 +48,3 @@ Icon?
 ehthumbs.db
 Thumbs.db
 .directory
-
-## sphinx
-docs/buildsite/
