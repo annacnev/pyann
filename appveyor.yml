@@ -27,7 +27,7 @@ before_build:
 
 build_script:
 - cmd: |
-    cd C:\projects\pyann\pyann\annlib\lib\NN.cc
+    cd C:\projects\pyann
     "%PYTHON%/python.exe" -m pip install .
     "%PYTHON%/python.exe" -m pip install --upgrade nose
     "%PYTHON%/python.exe" -m pip install --upgrade coverage
