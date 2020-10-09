@@ -25,7 +25,8 @@ before_build:
     "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
     "%PYTHONPATH%/python.exe" -m pip install --upgrade numpy
     "%PYTHONPATH%/python.exe" -m pip install --upgrade pandas
-    %CXX% -c C:\projects\pyann\pyann\annlib\lib\NN.cc
+    cd C:\projects\pyann
+    %MAKE%
 
 build_script:
 - cmd: |
