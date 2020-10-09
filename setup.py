@@ -10,7 +10,7 @@ with open(path.join(this_directory, 'README.md'), encoding='utf-8') as f:
 
 annlib_extension = Extension(
     name="annlib",
-    sources=["pyann/annlib/annlib.pyx", "pyann/annlib/lib/ann2.cpp", "pyann/annlib/lib/NN.cc"],
+    sources=["pyann/annlib/annlib.pyx", "pyann/annlib/lib/ann2.cpp"],
     include_dirs=["pyann/annlib/lib", numpy.get_include(), "pyann/annlib/lib/ANNlib/include"],
     language= "c++"
 )
