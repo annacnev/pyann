@@ -2,8 +2,13 @@
 
 [![Release Version](https://img.shields.io/github/release/annacnev/pyann.svg)](https://github.com/annacnev/pyann/releases/latest)
 [![PyPI version](https://badge.fury.io/py/pyann.svg)](https://badge.fury.io/py/pyann)
-[![Build Status](https://travis-ci.org/annacnev/pyann.svg?branch=master)](https://travis-ci.org/annacnev/pyann)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyann?color=limegreen&label=pypi%20downloads)
+[![Build Status](https://img.shields.io/travis/annacnev/pyann/master.svg?label=Linux%20CI&logo=travis&logoColor=white)](https://travis-ci.org/annacnev/pyann)
+![Windows Build Status](https://img.shields.io/appveyor/ci/annacnev/pyann/master.svg?label=Windows%20CI&logo=appveyor&logoColor=white)
 [![Documentation Status](https://readthedocs.org/projects/pyann/badge/?version=latest)](https://pyann.readthedocs.io/en/latest/?badge=latest)
+
+
+
 
 Finds the k nearest neighbours for every point in a given dataset
 in O(N log N) time using Arya and Mount's ANN library (v1.1.3). There is
@@ -38,6 +43,8 @@ pip install pyann
 
 ### Source
 
+#### macosx / linux
+
 To install PyANN from source you need [Cython](https://pypi.org/project/Cython/) and [setuptools](https://pypi.org/project/setuptools/) >=18.0 in addition to the normal dependencies above. Cython can be installed from PyPI:
 
 ```
@@ -48,10 +55,44 @@ In the PyANN directory (same one where you found this file after cloning the git
 ```
 make
 ```
-Then:
+then:
 ```
 python setup.py install
 ```
+#### windows
+
+Requires 
+- [MinGW](http://www.mingw.org/wiki/getting_started)
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- [Python Tools for Visual Studio](https://docs.microsoft.com/en-us/visualstudio/python/installing-python-support-in-visual-studio?view=vs-2019)
+
+
+Install g++, gcc, and mingw32-make
+
+```
+mingw-get install gcc g++ mingw32-make
+```
+
+Install all required dependencies using `pip`:
+
+```
+"%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools cython numpy pandas
+```
+where `%PYTHONPATH%` is the path to your `python.exe`.
+
+In the PyANN directory (same one where you found this file after cloning the git repo), first execute:
+
+```
+%MAKE%
+```
+where `%MAKE%` is the path to your `mingw32-make.exe`
+
+then:
+
+```
+"%PYTHONPATH%/python.exe" -m pip install .
+```
+
 ## Documentation
 
 Documentation for PyANN is available at: <https://pyann.readthedocs.io/en/latest/>

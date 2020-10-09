@@ -11,15 +11,13 @@ compiler: clang
 before_install:
   - python --version
   - pip install -U pip
-  - pip install codecov
-  - pip install cython
+  - pip install codecov cython
   - pip install setuptools==50.3.0
   - "make"
 
 install:
   - pip install .
-  - pip install nose coverage
-  - pip install coveralls
+  - pip install nose coverage coveralls
 # # command to run tests, e.g. python setup.py test
 script:
   - python setup.py nosetests --with-coverage --cover-package pyann
