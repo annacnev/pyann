@@ -20,7 +20,7 @@ before_build:
     set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
     %CXX% --version
     "%PYTHONPATH%/python.exe" -m pip install --upgrade pip setuptools codecov cython numpy pandas nose coverage coveralls wheel
-    cd C:\projects\pyann
+    cd C:\projects\pyann\pyann\annlib\lib
     %MAKE%
 
 build_script:
