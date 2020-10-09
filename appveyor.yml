@@ -11,15 +11,15 @@ environment:
     MAKE: mingw32-make
 
   matrix:
-    - PYTHON: "C:\Python36"
+    - PYTHONPATH: "C:\Python36"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHON: "C:\Python37"
+    - PYTHONPATH: "C:\Python37"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHON: "C:\Python38"
+    - PYTHONPATH: "C:\Python38"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
@@ -28,8 +28,8 @@ matrix:
 
 before_build:
 - cmd: |
-    dir %PYTHON%
-    echo %PATH%
+    'set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%'
+    dir %PYTHONPATH%
     %CXX% --version
     "%PYTHON%/python.exe" -m pip install --upgrade pip
     "%PYTHON%/python.exe" -m pip install --upgrade setuptools
