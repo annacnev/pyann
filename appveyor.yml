@@ -23,7 +23,7 @@ before_build:
     "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
     "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
     "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
-    %CXX% -c \pyann\annlib\lib\NN.cc
+    %CXX% -c C:\projects\pyann\pyann\annlib\lib\NN.cc
 
 build_script:
 - cmd: |
