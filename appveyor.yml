@@ -45,4 +45,4 @@ test_script:
     "%PYTHONPATH%/python.exe" setup.py sdist bdist_wheel
 
 artifacts:
-  - path: C:\projects\pyann\dist*
+  - path: dist*
