@@ -1,4 +1,14 @@
+
+image: Visual Studio 2015
+
 environment:
+
+  global:
+    PATH: C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;$(PATH)
+    CXX: g++
+    CC: gcc
+    GCOV: gcov
+    MAKE: mingw32-make
 
   matrix:
     - PYTHON: "C:/Python36"
@@ -102,20 +112,15 @@ matrix:
 
 before_build:
 - cmd: |
+    set
+    dir C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin
+    '%CXX% --version'
     "%PYTHON%/python.exe" -m pip install --upgrade pip
     "%PYTHON%/python.exe" -m pip install --upgrade setuptools
     "%PYTHON%/python.exe" -m pip install --upgrade codecov
     "%PYTHON%/python.exe" -m pip install --upgrade cython
-    g++ -c %APPVEYOR_BUILD_FOLDER%\pyann\annlib\lib\NN.cc
-
-- sh: |
-    python --version
-    pip install -U pip
-    pip install codecov
-    pip install cython
-    pip install setuptools==50.3.0
-    make
-
+    cd ${Env:APPVEYOR_BUILD_FOLDER}
+    %MAKE%
 
 build_script:
 - cmd: |
@@ -124,10 +129,7 @@ build_script:
     "%PYTHON%/python.exe" -m pip install --upgrade coverage
     "%PYTHON%/python.exe" -m pip install --upgrade coveralls
 
-- sh: |
-    - pip install .
-    - pip install nose coverage
-    - pip install coveralls
+
 
 before_test:
 - ps: |
@@ -141,6 +143,5 @@ test_script:
     cd %APPVEYOR_BUILD_FOLDER%
     "%PYTHON%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
 
-- sh: |
-    cd %APPVEYOR_BUILD_FOLDER%
-    python setup.py nosetests --with-coverage --cover-package pyann
+artifacts:
+  - path: dist*

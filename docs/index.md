@@ -1,8 +1,10 @@
 # PyANN
 
-[![Release Version](https://img.shields.io/github/release/annacnev/pyann.svg)](https://github.com/annacnev/pyann/releases/latest) 
+[![Release Version](https://img.shields.io/github/release/annacnev/pyann.svg)](https://github.com/annacnev/pyann/releases/latest)
 [![PyPI version](https://badge.fury.io/py/pyann.svg)](https://badge.fury.io/py/pyann)
-[![Build Status](https://travis-ci.org/annacnev/pyann.svg?branch=master)](https://travis-ci.org/annacnev/pyann)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/pyann?color=limegreen&label=pypi%20downloads)
+[![Build Status](https://img.shields.io/travis/annacnev/pyann/master.svg?label=Linux%20CI&logo=travis&logoColor=white)](https://travis-ci.org/annacnev/pyann)
+![Windows Build Status](https://img.shields.io/appveyor/ci/annacnev/pyann/master.svg?label=Windows%20CI&logo=appveyor&logoColor=white)
 [![Documentation Status](https://readthedocs.org/projects/pyann/badge/?version=latest)](https://pyann.readthedocs.io/en/latest/?badge=latest)
 
 
