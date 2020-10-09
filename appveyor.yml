@@ -23,6 +23,8 @@ before_build:
     "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
     "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
     "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade numpy
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade pandas
     %CXX% -c C:\projects\pyann\pyann\annlib\lib\NN.cc
 
 build_script:
