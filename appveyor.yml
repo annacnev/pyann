@@ -33,7 +33,7 @@ before_build:
 build_script:
 - cmd: |
     cd C:\projects\pyann
-    "%PYTHONPATH%/python.exe" -m pip install .
+    "%PYTHONPATH%/python.exe" setup.py develop
     "%PYTHONPATH%/python.exe" -m pip install --upgrade nose
     "%PYTHONPATH%/python.exe" -m pip install --upgrade coverage
     "%PYTHONPATH%/python.exe" -m pip install --upgrade coveralls
