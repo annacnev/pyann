@@ -28,7 +28,6 @@ matrix:
 
 before_build:
 - cmd: |
-    set PATH=%PYTHON%;%PYTHON%\Scripts;%PATH%
     dir %PYTHON%
     echo %PATH%
     %CXX% --version
