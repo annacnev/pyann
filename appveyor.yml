@@ -11,15 +11,15 @@ environment:
     MAKE: mingw32-make
 
   matrix:
-    - PYTHONPATH: "C:\Python36"
+    - PYTHONPATH: C:\Python36
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHONPATH: "C:\Python37"
+    - PYTHONPATH: C:\Python37
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHONPATH: "C:\Python38"
+    - PYTHONPATH: C:\Python38
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
