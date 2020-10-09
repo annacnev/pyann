@@ -37,10 +37,11 @@ build_script:
     "%PYTHONPATH%/python.exe" -m pip install --upgrade nose
     "%PYTHONPATH%/python.exe" -m pip install --upgrade coverage
     "%PYTHONPATH%/python.exe" -m pip install --upgrade coveralls
+    dir
 
 test_script:
 - cmd: |
     "%PYTHONPATH%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
 
 artifacts:
-  - path: dist*
+  - path: C:\projects\pyann\dist*
