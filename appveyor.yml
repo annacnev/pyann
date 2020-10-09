@@ -27,24 +27,15 @@ before_build:
 
 build_script:
 - cmd: |
-    set "CI_BUILD=1" && "%PYTHON%/python.exe" -m pip wheel --wheel-dir=%cd%\dist . --verbose
+    cd C:\projects\pyann\pyann\annlib\lib\NN.cc
+    "%PYTHON%/python.exe" -m pip install .
     "%PYTHON%/python.exe" -m pip install --upgrade nose
     "%PYTHON%/python.exe" -m pip install --upgrade coverage
     "%PYTHON%/python.exe" -m pip install --upgrade coveralls
 
-
-
-before_test:
-- ps: |
-    cd ${Env:APPVEYOR_BUILD_FOLDER}\tests
-    $env:PYTHONWARNINGS = "ignore:::pip._internal.cli.base_command"
-    &"${Env:PYTHON}/python.exe" -m pip install --user --no-warn-script-location (ls "../dist/opencv_*.whl")
-    if ($LastExitCode -ne 0) {throw $LastExitCode}
-
 test_script:
 - cmd: |
-    cd %APPVEYOR_BUILD_FOLDER%
-    "%PYTHON%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
+    "%PYTHONPATH%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
 
 artifacts:
   - path: dist*
