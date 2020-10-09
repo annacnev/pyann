@@ -42,6 +42,7 @@ build_script:
 test_script:
 - cmd: |
     "%PYTHONPATH%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
+    "%PYTHONPATH%/python.exe" -m pip install --user --upgrade setuptools wheel
     "%PYTHONPATH%/python.exe" setup.py sdist bdist_wheel
 
 artifacts:
