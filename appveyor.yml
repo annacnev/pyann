@@ -17,15 +17,15 @@ environment:
 
 before_build:
 - cmd: |
-    - set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
-    - dir %PYTHONPATH%
-    - %CXX% --version
-    - "%PYTHONPATH%/python.exe" -m pip install --upgrade pip
-    - "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
-    - "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
-    - "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
-    - cd ${Env:APPVEYOR_BUILD_FOLDER}
-    - %CXX% -c \pyann\annlib\lib\NN.cc
+    set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
+    dir %PYTHONPATH%
+    %CXX% --version
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade pip
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
+    cd ${Env:APPVEYOR_BUILD_FOLDER}
+    %CXX% -c \pyann\annlib\lib\NN.cc
 
 build_script:
 - cmd: |
