@@ -106,11 +106,7 @@ before_build:
     "%PYTHON%/python.exe" -m pip install --upgrade setuptools
     "%PYTHON%/python.exe" -m pip install --upgrade codecov
     "%PYTHON%/python.exe" -m pip install --upgrade cython
-    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
-    refreshenv
-    choco install make
-    cd %APPVEYOR_BUILD_FOLDER%\pyann\annlib\lib
-    make
+    g++ -c %APPVEYOR_BUILD_FOLDER%\pyann\annlib\lib\NN.cc
 
 - sh: |
     python --version
