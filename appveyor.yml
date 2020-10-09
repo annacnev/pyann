@@ -28,10 +28,10 @@ before_build:
 build_script:
 - cmd: |
     cd C:\projects\pyann
-    "%PYTHON%/python.exe" -m pip install .
-    "%PYTHON%/python.exe" -m pip install --upgrade nose
-    "%PYTHON%/python.exe" -m pip install --upgrade coverage
-    "%PYTHON%/python.exe" -m pip install --upgrade coveralls
+    "%PYTHONPATH%/python.exe" -m pip install .
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade nose
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade coverage
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade coveralls
 
 test_script:
 - cmd: |
