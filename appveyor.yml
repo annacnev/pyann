@@ -3,6 +3,11 @@ image: Visual Studio 2015
 
 environment:
 
+  matrix:
+    - PYTHONPATH: C:\Python36
+    - PYTHONPATH: C:\Python37
+    - PYTHONPATH: C:\Python38
+
   global:
     PATH: C:\mingw-w64\i686-5.3.0-posix-dwarf-rt_v4-rev0\mingw32\bin;$(PATH)
     CXX: g++.exe
@@ -10,33 +15,17 @@ environment:
     GCOV: gcov
     MAKE: mingw32-make
 
-  matrix:
-    - PYTHONPATH: C:\Python36
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-    - PYTHONPATH: C:\Python37
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-    - PYTHONPATH: C:\Python38
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-matrix:
-    fast_finish: true
-
 before_build:
 - cmd: |
-    'set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%'
-    dir %PYTHONPATH%
-    %CXX% --version
-    "%PYTHON%/python.exe" -m pip install --upgrade pip
-    "%PYTHON%/python.exe" -m pip install --upgrade setuptools
-    "%PYTHON%/python.exe" -m pip install --upgrade codecov
-    "%PYTHON%/python.exe" -m pip install --upgrade cython
-    cd ${Env:APPVEYOR_BUILD_FOLDER}
-    %CXX% -c \pyann\annlib\lib\NN.cc
+    - set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
+    - dir %PYTHONPATH%
+    - %CXX% --version
+    - "%PYTHONPATH%/python.exe" -m pip install --upgrade pip
+    - "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
+    - "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
+    - "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
+    - cd ${Env:APPVEYOR_BUILD_FOLDER}
+    - %CXX% -c \pyann\annlib\lib\NN.cc
 
 build_script:
 - cmd: |
