@@ -19,30 +19,17 @@ before_build:
 - cmd: |
     set PATH=%PYTHONPATH%;%PYTHONPATH%\Scripts;%PATH%
     %CXX% --version
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade pip
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade codecov
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade cython
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade numpy
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade pandas
-    cd C:\projects\pyann\pyann\annlib\lib
-    %MAKE%
+    "%PYTHONPATH%/python.exe" -m pip install --upgrade pip setuptools codecov cython numpy pandas nose coverage coveralls wheel
     cd C:\projects\pyann
     %MAKE%
 
 build_script:
 - cmd: |
-    cd C:\projects\pyann
     "%PYTHONPATH%/python.exe" -m pip install .
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade nose
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade coverage
-    "%PYTHONPATH%/python.exe" -m pip install --upgrade coveralls
-    dir
 
 test_script:
 - cmd: |
     "%PYTHONPATH%/python.exe" setup.py nosetests --with-coverage --cover-package pyann
-    "%PYTHONPATH%/python.exe" -m pip install --user --upgrade setuptools wheel
     "%PYTHONPATH%/python.exe" setup.py sdist bdist_wheel
     dir
 

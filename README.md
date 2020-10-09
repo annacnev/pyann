@@ -43,6 +43,8 @@ pip install pyann
 
 ### Source
 
+#### macosx / linux
+
 To install PyANN from source you need [Cython](https://pypi.org/project/Cython/) and [setuptools](https://pypi.org/project/setuptools/) >=18.0 in addition to the normal dependencies above. Cython can be installed from PyPI:
 
 ```
@@ -53,10 +55,44 @@ In the PyANN directory (same one where you found this file after cloning the git
 ```
 make
 ```
-Then:
+then:
 ```
 python setup.py install
 ```
+#### windows
+
+Requires 
+- [MinGW](http://www.mingw.org/wiki/getting_started)
+- [Visual Studio](https://visualstudio.microsoft.com/downloads/)
+- [Python Tools for Visual Studio](https://docs.microsoft.com/en-us/visualstudio/python/installing-python-support-in-visual-studio?view=vs-2019)
+
+
+Install g++, gcc, and mingw32-make
+
+```
+mingw-get install gcc g++ mingw32-make
+```
+
+Install all required dependencies using `pip`:
+
+```
+"%PYTHONPATH%/python.exe" -m pip install --upgrade setuptools cython numpy pandas
+```
+where `%PYTHONPATH%` is the path to your `python.exe`.
+
+In the PyANN directory (same one where you found this file after cloning the git repo), first execute:
+
+```
+%MAKE%
+```
+where `%MAKE%` is the path to your `mingw32-make.exe`
+
+then:
+
+```
+"%PYTHONPATH%/python.exe" -m pip install .
+```
+
 ## Documentation
 
 Documentation for PyANN is available at: <https://pyann.readthedocs.io/en/latest/>
