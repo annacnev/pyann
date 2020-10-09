@@ -1,5 +1,5 @@
 
-image: Visual Studio 2015
+image: Visual Studio 2019
 
 environment:
 
@@ -11,101 +11,17 @@ environment:
     MAKE: mingw32-make
 
   matrix:
-    - PYTHON: "C:/Python36"
+    - PYTHON: "C:\Python36"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHON: "C:/Python36-x64"
+    - PYTHON: "C:\Python37"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
 
-    - PYTHON: "C:/Python37"
+    - PYTHON: "C:\Python38"
       ENABLE_CONTRIB: 0
       ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python37-x64"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python38"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python38-x64"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python36"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python36-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python37"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python37-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python38"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python38-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 0
-
-    - PYTHON: "C:/Python36"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python36-x64"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python37"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python37-x64"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python38"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python38-x64"
-      ENABLE_CONTRIB: 0
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python36"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python36-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python37"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python37-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python38"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
-
-    - PYTHON: "C:/Python38-x64"
-      ENABLE_CONTRIB: 1
-      ENABLE_HEADLESS: 1
 
 matrix:
     fast_finish: true
@@ -120,7 +36,7 @@ before_build:
     "%PYTHON%/python.exe" -m pip install --upgrade codecov
     "%PYTHON%/python.exe" -m pip install --upgrade cython
     cd ${Env:APPVEYOR_BUILD_FOLDER}
-    %MAKE%
+    "%CXX%" -c \pyann\annlib\lib\NN.cc
 
 build_script:
 - cmd: |
