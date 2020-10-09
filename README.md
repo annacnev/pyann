@@ -83,6 +83,7 @@ where `%PYTHONPATH%` is the path to your `python.exe`.
 In the PyANN directory (same one where you found this file after cloning the git repo), first execute:
 
 ```
+cd pyann\annlib\lib
 %MAKE%
 ```
 where `%MAKE%` is the path to your `mingw32-make.exe`
