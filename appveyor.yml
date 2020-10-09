@@ -25,6 +25,7 @@ before_build:
 
 build_script:
 - cmd: |
+    cd C:\projects\pyann
     "%PYTHONPATH%/python.exe" -m pip install .
 
 test_script:

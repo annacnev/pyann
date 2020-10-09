@@ -91,6 +91,7 @@ where `%MAKE%` is the path to your `mingw32-make.exe`
 then:
 
 ```
+cd C:\projects\pyann
 "%PYTHONPATH%/python.exe" -m pip install .
 ```
 
