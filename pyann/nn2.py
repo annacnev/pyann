@@ -75,7 +75,7 @@ def check_args(value):
     numeric_args = grouped_args['numeric']
     for argv in numeric_args:
         v = value.locals[argv]
-        if isinstance(v, int) or isinstance(v, float) or isinstance(v, np.int64):
+        if isinstance(v, int) or isinstance(v, float) or isinstance(v, np.int64) or isinstance(v, np.int32):
             pass
         else:
             raise TypeError(argv + ' must be of type float or int; recieved: ' + str(type(v)))
